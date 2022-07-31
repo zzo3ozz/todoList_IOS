@@ -10,14 +10,16 @@ import UIKit
 class TodoCell:UITableViewCell {
     @IBOutlet weak var checkBtn: UIButton!
     @IBOutlet weak var tdLabel: UILabel!
+    
     var filled = false
     
     @IBAction func doCheck(_ sender: Any) {
+        
         if filled {
             checkBtn.setImage(UIImage(systemName: "circle"), for: .normal)
             filled = false
         } else {
-            checkBtn.setImage(UIImage(systemName: "circle.inset.filled"), for: .normal)
+            checkBtn.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             filled = true
         }
         

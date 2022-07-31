@@ -21,7 +21,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                 <connections>
-                                    <segue destination="AMc-YJ-rPh" kind="presentation" id="UrY-hn-7Sb"/>
+                                    <segue destination="AMc-YJ-rPh" kind="presentation" modalPresentationStyle="fullScreen" id="UrY-hn-7Sb"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="64Q-di-e70">
@@ -90,6 +90,9 @@
                             <constraint firstItem="QMK-M1-1nZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="sMn-ji-8sD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="64Q-di-e70" id="gqf-5P-7ex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,11 +103,11 @@
             <objects>
                 <viewController id="AMc-YJ-rPh" customClass="AddViewController" customModule="todoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SU9-dN-SUD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="103" translatesAutoresizingMaskIntoConstraints="NO" id="fSp-NV-FRy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="52"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="52"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT8-uK-l40">
                                         <rect key="frame" x="0.0" y="0.0" width="69.5" height="52"/>
@@ -128,9 +131,12 @@
                                         <buttonConfiguration key="configuration" style="plain" title="추가">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="addList:" destination="AMc-YJ-rPh" eventType="touchUpInside" id="obz-JD-UG1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="uVp-PF-iTZ" secondAttribute="bottom" id="5fG-13-lbR"/>
                                     <constraint firstAttribute="bottom" secondItem="xT8-uK-l40" secondAttribute="bottom" id="B5p-vv-Emi"/>
@@ -141,18 +147,34 @@
                                     <constraint firstItem="xT8-uK-l40" firstAttribute="top" secondItem="fSp-NV-FRy" secondAttribute="top" id="u7C-be-U99"/>
                                 </constraints>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내용을 입력하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-JQ-sKL">
+                                <rect key="frame" x="20" y="106" width="374" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RLt-JQ-sKL" secondAttribute="height" multiplier="187:64" id="sTh-bN-4jk"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QMc-9S-DFR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RLt-JQ-sKL" firstAttribute="leading" secondItem="QMc-9S-DFR" secondAttribute="leading" constant="20" id="DOe-aX-eMD"/>
                             <constraint firstItem="fSp-NV-FRy" firstAttribute="leading" secondItem="QMc-9S-DFR" secondAttribute="leading" id="Ya1-cE-DDa"/>
                             <constraint firstItem="QMc-9S-DFR" firstAttribute="trailing" secondItem="fSp-NV-FRy" secondAttribute="trailing" id="Zlu-vx-V6Y"/>
                             <constraint firstItem="fSp-NV-FRy" firstAttribute="top" secondItem="QMc-9S-DFR" secondAttribute="top" id="a6U-OS-H75"/>
+                            <constraint firstItem="QMc-9S-DFR" firstAttribute="trailing" secondItem="RLt-JQ-sKL" secondAttribute="trailing" constant="20" id="bQ1-2f-lLK"/>
+                            <constraint firstItem="RLt-JQ-sKL" firstAttribute="top" secondItem="fSp-NV-FRy" secondAttribute="bottom" constant="10" id="zB7-L3-RWS"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="PGd-fT-8BD"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mTextView" destination="RLt-JQ-sKL" id="jPn-rr-h4A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKP-p7-uMK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,11 +184,11 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
