@@ -27,7 +27,39 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    func refresh() {
+    
+    @IBAction func doDone(_ sender: UIButton) {
+        selectAll()
+        
+        var count = 0
+        for i in 0...(list.count - 1) {
+            if list[i].done == 1 {
+                count += 1
+            }
+        }
+        var result:String
+        let rate = Double(count) / Double(list.count)
+        
+        if rate < 0.3 {
+            result = "분발합시다."
+        } else if rate < 0.7 {
+            result = "수고했어요!"
+        } else {
+            result = "참 잘했어요!"
+        }
+        
+        let alertVC = UIAlertController(title: "할 일 끝!", message: "\(result)", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        self.present(alertVC, animated: true, completion: nil)
+        
+        let db = FMDatabase(path: databasePath)
+
+        if db.open() {
+            try! db.executeUpdate("delete from todoList", values: [])
+        }
+
+        list.removeAll()
         self.tableView.reloadData()
     }
     
@@ -59,7 +91,6 @@ class ViewController: UIViewController {
     func selectAll() {
         list.removeAll()
         
-        print("select All")
         let db = FMDatabase(path: databasePath)
         
         if db.open() {
@@ -73,7 +104,6 @@ class ViewController: UIViewController {
                     list.append(member)
                 }
                 self.tableView.reloadData()
-                print(list)
             } else {
                 NSLog("결과 없음")
             }
