@@ -24,7 +24,6 @@ class AddViewController:UIViewController, UITextViewDelegate {
         mTextView.textColor = UIColor.lightGray
         mTextView.text = "할 일을 입력해주세요."
         mTextView.delegate = self
-        print("333333")
     }
         
     @IBAction func viewClose(_ sender: UIButton) {

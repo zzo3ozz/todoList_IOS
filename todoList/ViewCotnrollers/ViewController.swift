@@ -91,7 +91,25 @@ extension ViewController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for:indexPath) as! TodoCell
         let numbers = self.list[indexPath.row]
         cell.tdLabel.text = numbers.todo
+        cell.do_Check()
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+            if editingStyle == .delete {
+                let db = FMDatabase(path: databasePath)
+                if db.open() {
+                    try! db.executeUpdate("delete from todoList where todo = '\(list[indexPath.row].todo)'", values: [])
+                }
+                
+                list.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            } else if editingStyle == .insert {
+                
+                
+            }
     }
     
     
