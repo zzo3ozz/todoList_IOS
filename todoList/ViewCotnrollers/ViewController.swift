@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
 
@@ -23,10 +23,9 @@ extension ViewController:UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for:indexPath)
-        cell.textLabel?.text = "todo"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for:indexPath) as! TodoCell
+        cell.tdLabel.text = "test"
         return cell
-
     }
     
     
