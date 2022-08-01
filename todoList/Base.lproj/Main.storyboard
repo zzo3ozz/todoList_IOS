@@ -78,7 +78,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T4D-VV-8CU">
-                                <rect key="frame" x="162" y="811" width="90" height="40"/>
+                                <rect key="frame" x="172" y="796" width="70" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="T4D-VV-8CU" secondAttribute="height" multiplier="90:40" id="Ycj-cJ-V1u"/>
                                 </constraints>
@@ -95,11 +95,10 @@
                             <constraint firstItem="64Q-di-e70" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8OO-ik-dCt"/>
                             <constraint firstItem="QMK-M1-1nZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="FAL-mR-zJQ"/>
                             <constraint firstItem="IYA-g1-3yP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KYc-NS-3Zr"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T4D-VV-8CU" secondAttribute="trailing" constant="162" id="UyM-65-FDx"/>
-                            <constraint firstItem="T4D-VV-8CU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="162" id="WIf-8D-9jW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IYA-g1-3yP" secondAttribute="trailing" constant="10" id="ZCF-4n-LO9"/>
-                            <constraint firstItem="T4D-VV-8CU" firstAttribute="top" secondItem="64Q-di-e70" secondAttribute="bottom" constant="30" id="d6e-Ne-pxX"/>
+                            <constraint firstItem="T4D-VV-8CU" firstAttribute="top" secondItem="64Q-di-e70" secondAttribute="bottom" constant="15" id="d6e-Ne-pxX"/>
                             <constraint firstItem="64Q-di-e70" firstAttribute="top" secondItem="QMK-M1-1nZ" secondAttribute="bottom" constant="30" id="fQg-Zn-OVE"/>
+                            <constraint firstItem="T4D-VV-8CU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hub-Md-UPq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="64Q-di-e70" secondAttribute="trailing" id="mbC-yo-H3B"/>
                             <constraint firstItem="QMK-M1-1nZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="sMn-ji-8sD"/>
                         </constraints>

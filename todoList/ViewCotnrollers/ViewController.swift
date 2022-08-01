@@ -32,23 +32,30 @@ class ViewController: UIViewController {
         selectAll()
         
         var count = 0
-        for i in 0...(list.count - 1) {
-            if list[i].done == 1 {
-                count += 1
+        var result:String = ""
+        var title:String = ""
+                
+        if(list.count > 0) {
+            for i in 0...(list.count - 1) {
+                if list[i].done == 1 {
+                    count += 1
+                }
+                let rate = Double(count) / Double(list.count)
+                title = "할 일 끝!"
+                if rate < 0.3 {
+                    result = "분발합시다."
+                } else if rate < 0.7 {
+                    result = "수고했어요!"
+                } else {
+                    result = "참 잘했어요!"
+                }
             }
-        }
-        var result:String
-        let rate = Double(count) / Double(list.count)
-        
-        if rate < 0.3 {
-            result = "분발합시다."
-        } else if rate < 0.7 {
-            result = "수고했어요!"
         } else {
-            result = "참 잘했어요!"
+            title = "오류"
+            result = "할 일을 추가해주세요."
         }
         
-        let alertVC = UIAlertController(title: "할 일 끝!", message: "\(result)", preferredStyle: .alert)
+        let alertVC = UIAlertController(title: title, message: result, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertVC.addAction(okAction)
         self.present(alertVC, animated: true, completion: nil)
