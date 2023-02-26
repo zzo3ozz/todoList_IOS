@@ -11,4 +11,4 @@ todoList ios (by Xcode)
 팀장 및 보고서 by 이유선
 
 <br>
-![image](https://user-images.githubusercontent.com/90233522/221416974-509ea4d8-6a5b-4238-8b6c-1ba7ce3f399c.png)
+![image](https://user-images.githubusercontent.com/90233522/221417163-f2ea7100-a82a-481d-955e-d377c8c155a1.jpg)
